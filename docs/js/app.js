@@ -87,7 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chargement du modèle ONNX
     async function loadModel() {
         try {
-            model = await ort.InferenceSession.create(window.MODEL_PATH);
+            // Téléchargement du modèle
+            console.log('Téléchargement du modèle depuis:', window.MODEL_PATH);
+            const response = await fetch(window.MODEL_PATH);
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP! statut: ${response.status}`);
+            }
+            const modelData = await response.arrayBuffer();
+            
+            // Création de la session ONNX avec les données binaires
+            model = await ort.InferenceSession.create(modelData);
             console.log('Modèle chargé avec succès!');
         } catch (error) {
             console.error('Erreur lors du chargement du modèle:', error);
