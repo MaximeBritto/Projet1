@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chargement du modèle ONNX
     async function loadModel() {
         try {
-            model = await ort.InferenceSession.create('/static/mnist_model.onnx');
+            model = await ort.InferenceSession.create('../static/mnist_model.onnx');
             console.log('Modèle chargé avec succès!');
         } catch (error) {
             console.error('Erreur lors du chargement du modèle:', error);
