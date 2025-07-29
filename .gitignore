@@ -1,0 +1,29 @@
+# Dossiers
+data/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Fichiers de l'IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environnements virtuels
+venv/
+env/
+
+# Fichiers de cache
+.pytest_cache/
+.mypy_cache/
+
+# Fichiers de configuration locaux
+.env
+
+# Fichiers de sortie
+mnist_model.onnx
+
+# Fichiers système
+.DS_Store
+Thumbs.db

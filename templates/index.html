@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconnaissance de Chiffres - MNIST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-robot"></i> Reconnaissance de Chiffres Manuscrits</h1>
+        
+        <div class="drawing-section">
+            <div class="drawing-container">
+                <canvas id="drawingCanvas" width="280" height="280"></canvas>
+            </div>
+            
+            <div class="controls">
+                <button id="predictBtn">
+                    <i class="fas fa-search"></i> Analyser le chiffre
+                </button>
+                <button id="clearBtn">
+                    <i class="fas fa-eraser"></i> Effacer
+                </button>
+            </div>
+        </div>
+        
+        <div class="results-section">
+            <div class="prediction-result">
+                <h3>Prédiction</h3>
+                <div class="prediction-value" id="prediction">?</div>
+                
+                <div class="confidence">
+                    <h4>Niveaux de confiance</h4>
+                    <div class="confidence-bars" id="confidenceBars">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
